@@ -1,0 +1,1031 @@
+:root{
+    --main-color: #16a085 ;
+    --color-dark: #1D2231;
+    --text-grey: #8390A2;
+}
+
+*::selection{
+    background:var(--text-grey);
+    color:#fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    direction: rtl;
+    font-family: 'Amiri', serif;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden; /*no scrolling mechanism is provided*/     
+    scroll-behavior: smooth;
+}
+
+/* Pharm Panel Page */
+.container{
+    position: relative;
+    width: 100%;
+}
+
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--main-color);
+    transition: 0.5s;
+    overflow:hidden;
+    top:0;
+}
+
+.navigation.active{
+    width: 70px;
+}
+
+.container .navigation ul{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 100%;
+}
+
+.container .navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: all 0.5s;
+    font-size: 20px;
+}
+
+.container .navigation ul li:hover , .container .navigation ul li.hovered{
+    background: white;
+}
+
+.container .navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+ }
+
+.container .navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.container .navigation ul li:hover a, .container .navigation ul li.hovered a{
+    color: var(--main-color);
+}
+
+.container .navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width:60px ;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+.container .navigation ul li a .title{
+     position: relative;
+     display: block;
+     padding: 0 10px;
+     height: 60px;
+     line-height: 60px;
+     text-align: start;
+     white-space: nowrap;
+}
+
+/*curve*/
+.container .navigation ul li:hover a::before , .container .navigation ul li.hovered a::before{
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: -50px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: -40px 17px 0 10px white;
+      background: transparent;
+      pointer-events: none;
+}
+
+.container .navigation ul li:hover a::after, .container .navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    left: -5px;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: -40px -17px 0 10px white;
+    background: transparent;
+    pointer-events: none;
+}
+
+/*Dashboard Pharm */
+.main-content{
+    margin-right: 300px;
+    width: calc(100% - 300px);
+    min-height: 100vh;
+    transition: 0.5s;
+}
+
+.main-content.active{
+    width: calc(100% - 70px);
+    margin-right: 70px;
+}
+
+.main-content .topbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.main-content .topbar .toggle{
+   position: relative;    
+   width: 60px;
+   height: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size:1.7rem ;
+   cursor: pointer;
+}
+
+.main-content .topbar .user-wrapper{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main-content .topbar .user-wrapper img{
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.main-content .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:30px;
+    margin-right: 20px;
+}
+
+.main-content .cardBox .card{
+    position: relative;
+    background: white;
+    transition: all 0.5s;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 170px;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.main-content .cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--main-color);
+}
+
+.main-content .cardBox .card .cardName{
+    color:rgba(0, 0, 0, 0.281);
+    font-size: 1rem;
+    margin-top:5px ;
+    position: absolute;
+    bottom: 20px;
+}
+
+.main-content .cardBox .card .iconBox{
+    font-size: 3.2rem;
+    color: rgba(0, 0, 0, 0.281);
+}
+
+.main-content .cardBox .card:hover{
+    background-color: var(--main-color);
+}
+
+.main-content .cardBox .card:hover .iconBox,
+.main-content .cardBox .card:hover .cardName,
+.main-content .cardBox .card:hover .numbers{
+    color: white;
+}
+
+.main-content .details{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 3fr ;
+    grid-gap:20px;
+    margin-top: 50px;
+    padding-top: 0;
+}
+
+.main-content .details .recentOrders{
+    position: relative;
+    display: grid;
+    min-height: 250px;
+    background: white;
+    padding: 20px;
+    box-shadow:  0 10px 35px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding-bottom: 100px;
+}
+
+.main-content .details .recentOrders .cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.main-content .details .recentOrders .cardHeader2{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.main-content .details .recentOrders .cardHeader h2{
+    font-weight: 600;
+    color: var(--main-color);
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.main-content .details .recentOrders .cardHeader h3{
+    font-weight: 800;
+    color: var(--main-color);
+    font-size: 20px;
+}
+
+.main-content .details .recentOrders .cardHeader h4{
+    font-weight: 400;
+    margin: 10px 0;
+    font-size: 18px;
+    color:#1D2231;
+    margin-right: 30px;
+}
+
+.main-content .details .recentOrders .cardHeader h5{
+    font-weight: 600;
+    color: red;
+    margin-right: 30px;
+}
+
+/*Medicine Pharm*/
+.main-content .sea, .search{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #16a085;
+    border-radius: 60px;
+    transition: 0.5s;
+    box-shadow: 0 0 0 5px #16a085;
+    overflow: hidden;
+    right: 50px;
+    top: 10px;
+}
+  
+.main-content .sea.active, .search.active{
+    width: 360px;
+}
+  
+.main-content .sea .ic, .search .icon{
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 50px;
+    height: 50px;
+    background: #16a085;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+    cursor: pointer;
+}
+  
+.main-content .sea .ic::before, .search .icon::before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    transform: translate(-4px,-4px) ;
+}
+  
+.main-content .sea .ic::after, .search .icon::after{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: #fff;
+    transform: translate(6px,6px) rotate(315deg);
+}
+  
+.main-content .sea .input, .search .input{
+    position: relative;
+    width: 300px;
+    height: 60px;
+    right:  60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.main-content .sea .input input, .search .input input{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 10px 0;
+}
+  
+.main-content .details .recentOrders .cardHeader .headerOfCard{
+    margin-right: 40%;
+    font-size:30px;
+    color: var(--main-color);
+} 
+
+.main-content .details .recentOrders table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.main-content .details .recentOrders table thead td{
+  font-size: 20px;
+}
+  
+.main-content .details .recentOrders table tr{
+   color: var(--color-dark);
+   border-bottom: 1px solid rgba(0, 0, 0,0.1);
+}
+  
+.main-content .details .recentOrders table tr:last-child{
+   border-bottom: none;
+}
+  
+.main-content .details .recentOrders table tr td{
+   padding: 10px;
+}
+
+.main-content .details .recentOrders .btn{
+    font-size: 20px;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-bottom: 40px;
+    padding: 5px 20px;
+    cursor: pointer;
+    background: var(--main-color);
+    color: white;
+    border-radius: 10px;
+} 
+
+.main-content .details .recentOrders .btn-secondary{
+    background-color: #7bed9f;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.main-content .details .recentOrders .btn-secondary:hover{
+    background-color:#2ed573 ;  
+}
+
+.main-content .details .recentOrders .btn-danger{
+    background-color: #ff6b81;
+    padding: 5px 10px;
+    color: rgb(2, 2, 2);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.main-content .details .recentOrders .btn-danger:hover{
+    background-color: #ff4757; 
+}
+
+/*add medicine / add adv Pharm*/
+.login-form-container2 , .login-form-container3 {
+    position: fixed;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1100;
+    min-height: 100vh;
+    width:100%;
+    background:rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+ 
+.login-form-container2.active,
+.login-form-container3.active{
+    top:0;
+    opacity: 1;
+    visibility: visible;
+}
+  
+.login-form-container3 form , .login-form-container2 form{
+    border-color: white;
+    padding:1.5rem 2rem;
+    border-radius: .5rem;
+    background:#fff;
+    width:30rem;
+    height: 30.3rem; 
+}
+
+.login-form-container2 form{
+    width:32rem;
+    height: 41rem;
+}
+  
+.login-form-container2 form h3, 
+.login-form-container3 form h3{
+    font-size: 2rem;
+    color:var(--main-color);
+    text-transform: uppercase;
+    text-align: center;
+    padding:1rem 0;
+}
+  
+.login-form-container2 form .box, 
+.login-form-container3 form .box{
+    width:100%;
+    padding:1rem;
+    font-size: 1rem;
+    color:#333;
+    margin:10px 0;
+    border:.1rem solid rgba(0,0,0,.3);
+    text-transform: none;
+    border-radius: 12px;
+    font-family: Bell MT;
+}
+   
+.login-form-container2 form .box:focus ,
+.login-form-container3 form .box:focus {
+    border-color: var(--main-color);
+}
+ 
+.login-form-container2 form .btn, 
+.login-form-container3 form .btn {
+    display: block;
+    width:100%;
+    border-radius: 12px;
+    font-size: 21px;
+    background: var(--main-color);
+    color: white;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 40px;
+    border: none;
+}
+
+.login-form-container2 #form-close-phrm, 
+.login-form-container3 #form-close-adv{
+    position: absolute;    
+    font-size: 3rem;
+    color:white;
+    cursor: pointer;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.login-form-container2 #form-close-phrm{
+    right:530px;
+    top:10px;
+}
+
+.login-form-container3 #form-close-adv{
+    top:90px; 
+    right:540px;
+}
+
+.login-form-container3 form .radiobtn,
+.login-form-container2 form .radiobtn{
+    margin: 0 20px 0 5px;
+}
+
+.alert{
+    background: #c3dcd5;
+    padding: 20px ;
+    min-width: 400px;
+    position: absolute;
+    right: 645px;
+    top: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    border-left: 8px solid #94d3c1;
+}
+
+.alert-error{
+    background: #dac1c1;
+    padding: 20px ;
+    min-width: 400px;
+    position: absolute;
+    right: 645px;
+    top: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    border-left: 8px solid #d39497;
+}
+
+.alert .fas fa-exclamation-circle{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94d3c1;
+    font-size:30px ;
+}
+
+.alert .msg,
+.alert-error .msg{
+    padding: 0 50px ;
+    font-size: 18px;
+    color: #000000;
+}
+
+.alert .close-btn{
+    background: #73af9e;
+    padding: 20px 18px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.alert-error .close-btn-error{
+    background: #af7376;
+    padding: 20px 18px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.close-btn .la-check{
+    color: #216d57;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.close-btn .la-close{
+    color: #3a1015;
+    font-size: 22px;
+    line-height: 40px;
+}
+
+/*update pharm medicine Page / update adv pharm Page / Setting Page*/
+.update-form-container form{
+  position: relative;
+  padding:1.5rem 2rem;
+  border-radius: .5rem;
+  background: #ffffff;
+  width:100%;
+  height: 39.5rem;
+  display: inline-block;
+  margin: 20px;
+  box-shadow:  0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.update-form-container-post form{
+  position: relative;
+  padding:1.5rem 2rem;
+  border-radius: .5rem;
+  background: #ffffff;
+  width:90%;
+  min-height: 750px;
+  display: inline-block;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  box-shadow:  0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.update-form-container form .btn,
+.update-form-container-post form .btn{
+    position: absolute;
+    bottom: 20px;
+    width:120px;
+    height:50px;
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 10px;
+    left: 40%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.update-form-container form .btn{
+    left: 50%;
+}
+
+.update-form-container-post2 form .btn{
+    bottom: 10px;
+}
+
+.update-form-container form h3,
+.update-form-container-post form h3{
+  font-size: 2rem;
+  color:var(--main-color);
+  text-transform: uppercase;
+  padding:1rem 0;
+  margin-bottom: 50px;
+}
+
+.update-form-container form .lines,
+.update-form-container-post form .lines{
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.update-form-container-post2 form .lines{
+    margin-bottom: 70px;
+}
+
+.update-form-container-post form .lines3{
+    margin-bottom: 20px;
+    margin-top: -20px;
+    font-weight: bold;
+}
+
+.update-form-container-post form .lines3 a{
+    color: var(--main-color);
+}
+
+.update-form-container-post form .lines4{
+    margin-bottom: 50px;
+    color: var(--main-color);
+}
+
+.update-form-container form .lines .textLines,
+.update-form-container-post form .lines .textLines{
+    margin-bottom: 70px;
+}
+
+.update-form-container-post form .lines .textLines2{
+    line-height: 50px;
+} 
+
+.update-form-container-post form .lines .textLines3{
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
+
+.update-form-container-post form .lines .imgLines{
+    margin-right: 120px;
+}
+
+.update-form-container form .lines .radiobtn,
+.update-form-container-post form .lines .radiobtn{
+    margin: 0 40px 0 5px;
+}
+
+.update-form-container form .lines .box{
+  position: absolute;
+  right: 150px;
+  width: 37%;
+  padding:1rem;
+  font-size:1rem;
+  color:#333;
+  margin-top: -15px;
+  border:.1rem solid rgba(0,0,0,.3);
+  text-transform: none;
+  border-radius: 12px;
+  font-family: Bell MT;
+}
+
+.update-form-container-post form .lines .box{
+  position: absolute;
+  width: 37%;
+  padding:1rem;
+  font-size:1rem;
+  right: 120px;
+  color:#333;
+  margin-top: -15px;
+  border:.1rem solid rgba(0,0,0,.3);
+  text-transform: none;
+  border-radius: 12px;
+  font-family: Bell MT;
+}
+
+.update-form-container-post2 form .lines .box{
+    right: 140px;
+} 
+
+
+@media(max-width:769px){
+    .container .navigation{
+        width: 70px;
+        height: 100vh;
+    }
+
+    .container .navigation ul li:nth-child(1){
+        margin-bottom: 0px;
+        margin-top: -20px;
+     }
+
+    .main-content{
+        width: calc(100% - 70px);
+        margin-right: 70px;
+    }
+
+    .main-content .topbar{
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .main-content .topbar .toggle{
+        display: none;
+    }
+
+    .main-content .topbar .user-wrapper{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main-content .topbar .user-wrapper h4{
+        margin-right: 15px;
+    }
+
+    .main-content .cardBox{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-right: 0;
+    }
+
+    .main-content .cardBox .card{
+        padding: 20px 15px;
+        height: 150px;
+    }
+
+    .main-content .cardBox .card .numbers{
+        font-size: 25px;
+    }
+
+    .main-content .cardBox .card .iconBox{
+        font-size: 35px;
+    }
+
+    .main-content .details .recentOrders table{
+        font-size: 14px;
+    }
+
+    .main-content .details .recentOrders table thead{
+        font-size: 10px;
+    }
+
+    .main-content .details .recentOrders table tr form .passInput{
+        width: 70%;
+        padding: 4px;
+        margin-left: 50px;
+    }
+
+    .main-content .details .recentOrders .cardHeader{
+        gap: 20px;
+    }
+
+    .main-content .details .recentOrders .cardHeader h2{
+        font-size: 25px;
+    }
+
+    .main-content .details .recentOrders .cardHeader h4 {
+        font-size: 14px;
+    }
+
+    .main-content .details .recentOrders .cardHeader .h4CardHeader{
+        font-size: 10px;
+    }  
+
+    .main-content .details .recentOrders .btn-secondary,
+    .main-content .details .recentOrders .btn-danger {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .main-content .details .recentOrders .btn {
+        text-align: center;
+        width: 115px;
+        height: 40px;
+        left: 40%;
+    }
+
+    .update-form-container-post form ,
+    .update-form-container form {
+        width: 90%;
+    }
+
+    .update-form-container-post2 form .lines .box ,
+    .update-form-container-post form .lines .box , 
+    .update-form-container form .lines .box{
+        right: 100px;
+        width: 70%;
+    }
+
+    .update-form-container-post form .lines .box{
+        right: 110px;
+    }
+
+    .update-form-container form .lines .box{
+        right: 90px;
+    }
+
+    .update-form-container-post2 form .btn ,
+    .update-form-container-post form .btn{
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+        bottom: 20px;
+    }
+
+    .update-form-container form .btn {
+        left: 40%;
+        width: 80px;
+        height: 35px;
+        font-size: 17px;
+    }
+
+    .update-form-container-post form .lines .imgLines {
+        margin-right: 100px;
+    }
+
+    .alert{
+        right: 250px;
+        min-width: 202px;
+        height: 50px;
+        top: 20px;
+        padding: 10px 0;
+    }
+
+    .alert .msg , .alert-error .msg{
+        padding: 0 70px 0 50px;
+    }
+
+    .login-form-container3 form, .login-form-container2 form{
+        width: 25rem;
+    }
+
+    .login-form-container2 form{
+        height: 90vh;
+    }
+
+    .login-form-container2 form .btn{
+        margin-top: 10px;
+    }
+
+    .login-form-container3 #form-close-adv {
+        top: 20px;
+        right: 200px;
+        font-size: 2rem;
+    }
+
+    .login-form-container2 #form-close-phrm {
+        right: 200px;
+        top: 5px;
+        font-size: 2rem;
+    }
+}
+
+@media(max-width:426px){
+    .container .navigation{
+        right: 0px;
+    }
+
+    .main-content{
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .main-content .cardBox{
+        overflow-x: auto;
+        width: 100%;
+        gap: 30px;
+        flex-wrap: nowrap;
+    }
+
+    .main-content .cardBox .card{
+        flex: 0 0 auto;
+        height: 100px;
+        width: 280px;
+    }
+
+    .main-content .details{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .main-content .details .recentOrders {
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+        width: auto;
+    }
+
+    .main-content .details .recentOrders .cardHeader{
+        gap: 10px;
+        width: max-content;
+    }
+
+    .main-content .details .recentOrders .cardHeader .headerOfCard {
+        margin: auto;
+    }
+
+    .main-content .details .recentOrders table tr td {
+        padding: 10px 30px;
+    }
+
+    .main-content .details .recentOrders .btn{
+        padding: 5px 10px;
+        right: 40%;
+    }
+
+    .main-content .sea.active, .search.active {
+        width: 250px;
+    }
+
+    .update-form-container-post , 
+    .update-form-container{
+        overflow-x: auto;
+        padding-left: 50px;
+    }
+
+    .update-form-container-post form ,
+    .update-form-container form{
+        width: 120%;
+        
+    }
+
+    .update-form-container-post form .lines .box{
+        right: 100px;
+    }
+
+    .update-form-container form {
+        width: 120%;
+    }
+
+    .alert{
+        right: 50px;
+        height: 40px; 
+        padding: 7px 0;
+    }
+
+    .alert2 , .error2{
+        right: 100px;
+    }
+
+    .alert .msg , .alert-error .msg{
+        padding: 0 70px 0 0;
+    }
+
+    .login-form-container3 #form-close-adv,
+    .login-form-container2 #form-close-phrm {
+        right: 30px;
+    }
+}

@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+/*Login Page and Signup Page*/
+.loginback{
+   position: relative;
+   background-image: url("../images/login3.jpg");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   min-height: 100vh;
+}
+
+.loginback .login , .loginback .signup{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid gray;
+    color: rgb(255, 255, 255);
+    width: 28%;
+    min-height: 450px;
+    padding: 2%;
+    padding-top: 40px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.623);
+    border-radius: 2%;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.loginback .signup{
+    width: 40%;
+}
+
+.loginback .login .halfLine{
+    width: 150px;
+    height: 1px;
+    background-color: rgb(158, 158, 158);
+    position: absolute;
+    left: 0px;
+    bottom: 15px;
+}
+
+.loginback .login .halfLine2{
+    left: 220px;
+}
+
+.AdminLogin{
+    padding-top: 15px;
+}
+
+.loginback .login .text-center , .loginback .signup .text-center{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.loginback .login .lines , .loginback .signup .lines{
+    width: 100%;
+    text-align: right;
+    position: relative;
+    margin-bottom: 50px;
+    padding-right: 30px;
+}
+
+.loginback .signup .lines .inputField{
+    font-size: 20px;
+} 
+
+.loginback .login .lines .input , .loginback .signup .lines .input{
+    position: absolute;
+    border-radius: 0.7rem;
+    height: 40px;
+    width: 60%;
+    padding: 4%;
+    right: 140px;
+    top: -5px;
+    border: 0;  
+}
+
+.loginback .signup .lines .input{
+    right: 160px;
+}
+
+.loginback .login .btn-brimary1 , .loginback .signup .btn-brimary1{
+    background-color: #16a085;
+    color: white;
+    text-decoration: none;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-left: 20px;
+    width: 180px;
+    height: 50px;
+    margin: auto;
+    transition: all 0.5s;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.loginback .signup .btn-brimary1{
+    margin-top: 30px;
+}
+
+.loginback .login .btn-brimary1:hover , .loginback .signup .btn-brimary1:hover{
+    background-color:white ;    
+    color: #16a085;
+}
+
+.loginback .signup .back{
+    position: absolute;
+    top:30px;
+    right: 30px;
+    font-size: 30px;
+}
+
+.success{
+    color: #2ed573;
+    margin: 20px 0;
+}
+
+.error{
+    color: #ff4757;
+    margin: 20px 0;
+}
+
+@media(max-width:769px){
+    .loginback{
+        min-height: 110vh;
+    }
+
+    .loginback .login {
+        width: 50%;
+    }
+
+    .loginback .signup{
+        width: 60%;
+    }
+
+    .loginback .login .text-center , .loginback .signup .text-center{
+        font-size: 30px;
+    }
+
+    .loginback .login .lines , .loginback .signup .lines{
+        padding-right: 10px;
+    }
+
+    .loginback .login .lines .input {
+        width: 60%;
+        right: 110px;
+    }
+
+    .loginback .signup .lines .input{
+        width: 60%;
+        right: 135px;
+    }
+
+    .loginback .login .btn-brimary1 , .loginback .signup .btn-brimary1{
+        width: 150px;
+        height: 40px;
+    }
+
+    .loginback .login .newAccount , .loginback .login .AdminLogin{
+        font-size: 20px;
+    }
+
+    .loginback .login .halfLine{
+        width: 120px;
+        left: 15px;
+        bottom: 15px;
+    }
+
+    .loginback .login .halfLine2{
+        left: 220px;
+    }
+
+    .loginback .signup .back{
+        top:20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
+
+@media(max-width:426px){
+    .loginback .login , .loginback .signup {
+        width: 80%;
+    }
+
+    .loginback .login .lines , .loginback .signup .lines{
+        padding-right: 10px;
+    }
+
+    .loginback .login .lines .input , .loginback .signup .lines .input{
+        width: 60%;
+        right: 110px;
+    }
+
+    .loginback .login .btn-brimary1 , .loginback .signup .btn-brimary1{
+        width: 150px;
+        height: 40px;
+    }
+
+    .loginback .login .newAccount , .loginback .login .AdminLogin{
+        font-size: 20px;
+    }
+
+    .loginback .login .halfLine{
+        width: 120px;
+        left: 15px;
+        bottom: 17px;
+    }
+
+    .loginback .login .halfLine2{
+        left: 190px;
+    }
+
+    .loginback .login .lines .inputField , .loginback .signup .lines .inputField{
+        font-size: 18px;
+    }
+
+    .loginback .signup .lines .input{
+        width: 55%;
+        right: 125px;
+    }
+
+    .loginback .signup .back{
+        top:20px;
+        right: 20px;
+        font-size: 25px;
+    }  
+}
